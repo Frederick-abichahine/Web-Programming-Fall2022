@@ -37,6 +37,23 @@ body{
 }
 
 .edits{
-    /*Margin, padding etc... everything related to the division*/
-    
+    /*Margin, padding etc... everything related to the division*/    
 }
+
+/*
+For check circles:
+
+    background-color: #fff;
+    border-color: #b8bdc9;
+    border-radius: 50%;
+    transition: border-color .15s;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+
+*/
