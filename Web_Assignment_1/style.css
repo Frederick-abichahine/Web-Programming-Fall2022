@@ -1,6 +1,8 @@
 td{
     padding: 5px;
+    text-align: left;
 }
+
 th{
     padding: 5px;
     text-align: left;
@@ -16,6 +18,7 @@ table{
     height: 200px;
     width: 1000px; 
 } */
+
 body{ 
     background-color: #ababab;
     padding: 40px;
@@ -49,17 +52,7 @@ body{
     margin-inline-end: 0px;
 }
 
-/*
-distance between question and answers
-
-width: 100%;
-margin-left: 2px
-margin-bottom: 14px;
-*/
-
-/*
-For check circles:
-
+/* .radio_box{
     background-color: #fff;
     border-color: #b8bdc9;
     border-radius: 50%;
@@ -72,5 +65,19 @@ For check circles:
     top: 0;
     left: 0;
     box-sizing: border-box;
+} */
+
+/*
+distance between question and answers
+
+width: 100%;
+margin-left: 2px
+margin-bottom: 14px;
+*/
+
+/*
+For check circles:
+
+    
 
 */
