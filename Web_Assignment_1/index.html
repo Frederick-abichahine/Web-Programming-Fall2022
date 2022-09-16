@@ -11,33 +11,167 @@
 
     <body>
 
-        <div>
-            <h1 class="header">Follow Up Survey</h1>
-        </div>
-
-        <div class="edits">
-
-            <h3>Testing</h3>
-            <table>
-                <tr>try<td>this</td><td>this</td></tr>
-                <td>ooo</td>
-                <td>ooo</td>
-                <td>ooo</td>
-                <tr>try<td>this</td></tr>
-                <tr>try</tr>
-            </table>
-            
-        </div>
-
-        <div>
-            <h3>hi</h3>
-            <div>
-                <h3>hi</h3>
-                <div>
-                    <h3>hi</h3>
-                </div>
+        <form>
+            <div class="edit_title">
+                <!--First table for the title-->
+                <table width="50%" ALIGN=CENTER>
+                    <thead>
+                        <tr>
+                            <th colspan="2" scope="colgroup">
+                                <h1 class="header">Follow Up Survey</h1>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-        </div>
+
+            <!--<div class="edit_body">-->
+                <!--Second table for the first two questions on the same line-->
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>When did you use our service?</strong></td>
+                            <td colspan="2" scope="colgroup"><strong>Name of product or service</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" scope="colgroup">
+                                <input type="date" name="date">
+                            </td>
+                            <td colspan="2" scope="colgroup">
+                                <input type="text" name="text">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>Overall, how satisfied are you with the product or service?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" value="very satisfied">
+                                <label>Very satisfied</label><br>
+                                <input type="radio" value="neutral">
+                                <label>Neutral</label><br>
+                                <input type="radio" value="very unsatisfied">
+                                <label>Very Unsatisfied</label>
+                            </td> 
+                            <td>
+                                <input type="radio" value="satisfied">
+                                <label>Satisfied</label><br>
+                                <input type="radio" value="unsatisfied">
+                                <label>Unsatisfied</label><br>
+                                <input type="radio" value="n/a">
+                                <label>N/A</label>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>Did our product or service meet your expectations?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" value="yes">
+                                <label>Yes</label><br>
+                            </td>
+                            <td>
+                                <input type="radio" value="no">
+                                <label>No</label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>Would you recommend this product or service to a friend?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" value="yes">
+                                <label>Yes</label><br>
+                            </td>
+                            <td>
+                                <input type="radio" value="no">
+                                <label>No</label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>What aspect of the product or service were you most satisfied by?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" value="quality">
+                                <label>Quality</label><br>
+                                <input type="radio" value="service">
+                                <label>Customer Service</label><br>
+                            </td>
+                            <td>
+                                <input type="radio" value="price">
+                                <label>Price</label><br>
+                                <input type="radio" value="installation">
+                                <label>Installation or first use experience</label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" scope="colgroup"><strong>What aspect of the product or service were you least satisfied by?</strong></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" value="quality">
+                                <label>Quality</label><br>
+                                <input type="radio" value="service">
+                                <label>Customer Service</label><br>
+                            </td>
+                            <td>
+                                <input type="radio" value="price">
+                                <label>Price</label><br>
+                                <input type="radio" value="installation">
+                                <label>Installation or first use experience</label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Additional comments</strong></label>
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td><textarea placeholder="Type here..." rows="6" cols="50"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="50%" ALIGN=CENTER>
+                    <thead>
+                        <tr>
+                            <td style="text-align: center;">
+                                <br>
+                                <input type="submit" value="Submit">
+                                <br>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            <!--</div>-->
+        </form>
 
     </body>
 

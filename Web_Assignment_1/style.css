@@ -5,40 +5,53 @@ th{
     padding: 5px;
     background-color: white;
 }
-table{
-    background-color: lightgray;
-} */
 
+table{
+    background-color: #e5e5e5;
+} 
+*/
+
+div{
+    background-color: #e5e5e5;
+    height: 200px;
+    width: 1000px; 
+}
 body{ 
     background-color: #ababab;
 }
 
+.edit_title{
+    
+}
+
 .header{
-    background-color: white;
     text-align: center;
     color: #78373f;
     font-family: "Candal", sans-serif;
     font-weight: 800;
-    padding: 28px;
-    /*margin: 80px;*/
-    line-height: 1.45;
-    /*width: 40%;*/
-    /*display: block;*/
-
-
-
-    /*font-size: 2em;*/
-
+    background-color: white;
+    padding: 40px;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    line-height: 1.45;
+    
+    /*margin: 80px;*/
+    /*width: 40%;*/
+    /*display: block;*/
+    /*font-size: 2em;*/
     
 }
 
 .edits{
     /*Margin, padding etc... everything related to the division*/    
 }
+
+/*
+font for body
+font-family: Inter, sans-serif;
+*/
 
 /*
 For check circles:
