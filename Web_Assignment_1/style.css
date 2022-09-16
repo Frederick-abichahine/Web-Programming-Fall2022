@@ -3,7 +3,7 @@ td{
 }
 th{
     padding: 5px;
-    background-color: white;
+    text-align: left;
 }
 
 table{
@@ -19,6 +19,11 @@ table{
 body{ 
     background-color: #ababab;
     padding: 40px;
+    color: #78373f;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    
+    
 }
 
 .edit_title{
@@ -26,6 +31,11 @@ body{
     padding: 10px;
     line-height: 1.45;
     
+}
+
+.edit_table{
+    padding-top: 20px;
+    padding-left: 50px;
 }
 
 .header{
@@ -40,8 +50,11 @@ body{
 }
 
 /*
-font for body
-font-family: Inter, sans-serif;
+distance between question and answers
+
+width: 100%;
+margin-left: 2px
+margin-bottom: 14px;
 */
 
 /*
