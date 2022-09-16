@@ -48,8 +48,6 @@ body{
     font-family: Inter, sans-serif;
     font-size: .75em;
     font-weight: 400;
-    margin-top: 10px;
-    margin-left: 2px;
 }
 
 .date_box{
@@ -125,9 +123,11 @@ label{
     padding-top: 90px;
 }
 
-.try{
-    color: blue;
-}
+/*
+################################################################################
+The following is an attempt to change the radio check box to match the given...
+################################################################################
+*/
 
 /* .radio_box{
     background-color: #fff;
@@ -142,19 +142,19 @@ label{
     top: 0;
     left: 0;
     box-sizing: border-box;
+}
+
+label:before{
+    background-color: #fff;
+    border-color: #b8bdc9;
+    border-radius: 50%;
+    transition: border-color .15s;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
 } */
-
-/*
-distance between question and answers
-
-width: 100%;
-margin-left: 2px
-margin-bottom: 14px;
-*/
-
-/*
-For check circles:
-
-    
-
-*/
