@@ -97,7 +97,11 @@ let playerCheating = () => {
 //-----------------------------------------------
 
 //keep track of score
-
-// +5 for win
+//+5 for win
 //-10 for lose
 //add button to reset score to 0
+//save score on local storage
+//add login system
+
+//-----------------------------------------------
+//End
