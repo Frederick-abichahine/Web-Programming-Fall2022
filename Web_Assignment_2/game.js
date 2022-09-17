@@ -13,7 +13,6 @@ let flag1 = false     //this flag will indicate if the user hovered over "S" or 
 let flag2 = true      //this flag will indicate if the user hovered over the boundaries to ensure that they can not win before restarting
 let statuss           //this will save the status in order to change it appropriately
 let click             //this variable will be used to check if the user clicked on the "S" box to restart the game
-let game_border       //this variable will store the border of the game to ensure that the player does not go out of it
 
 /*
 #################################################
@@ -46,8 +45,10 @@ window.onload = () => {
 let touchStart = () => {                                    //this function will be executed when the user decides to start the game by hovering over the "S" box on the screen
 
     if (flag2){                                             //to ensure that you cannot start the game again without clicking on "S" (NOT just hovering)
+        
         statuss.textContent = "You started the game..."
         flag1 = true                                        //to ensure that the user started the game and only now will the borders turn red after hovering over "S"
+        test = true
     }
 }
 
@@ -88,6 +89,15 @@ let clickStart = () => {                                    //this function will
 
 //-----------------------------------------------
 
+let playerCheating = () => {
 
+    //display you lost if the mouse goes outside
+}
 
 //-----------------------------------------------
+
+//keep track of score
+
+// +5 for win
+//-10 for lose
+//add button to reset score to 0
