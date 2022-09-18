@@ -13,6 +13,8 @@ let flag1 = false     //this flag will indicate if the user hovered over "S" or 
 let flag2 = true      //this flag will indicate if the user hovered over the boundaries to ensure that they can not win before restarting
 let statuss           //this will save the status in order to change it appropriately
 let click             //this variable will be used to check if the user clicked on the "S" box to restart the game
+let cheat             //this variable will make sure that the user does not cheat by going around the game after starting it
+let flag3 = true      //this variable is just for display purposes; to correctly display if the player cheated or not
 
 /*
 #################################################
@@ -30,6 +32,8 @@ window.onload = () => {
     boundaries = document.getElementsByClassName("boundary")
     click = document.getElementById("start")
     click.onclick = clickStart                              //this will enter the function clickStart when the player decides to restart the game
+    cheat = document.getElementById("game")
+    cheat.onmouseleave = playerCheating                     //this will enter the function playerCheating if the player decides to go outside the game border
 
     for (let i = 0; i<boundaries.length - 1; i++){
         boundaries[i].onmouseover = touchBoundary           //this will enter the function touchBoundary to ensure that the borders turn red if the player hovers over them
@@ -48,7 +52,6 @@ let touchStart = () => {                                    //this function will
         
         statuss.textContent = "You started the game..."
         flag1 = true                                        //to ensure that the user started the game and only now will the borders turn red after hovering over "S"
-        test = true
     }
 }
 
@@ -71,12 +74,20 @@ let touchBoundary = () => {                                 //this function will
     if(flag1){                                              //this will check if the user hovered over "S" first to ensure that the borders turn red ONLY AFTER the user decides to start the game
 
         flag2 = false                                       //this now ensures that the user can not continue the game unless they restart
+        flag1 = false                                       //this ensures that the user can not cheat after losing before restarting the game
 
         for (let i = 0; i<boundaries.length - 1; i++){      //we add -1 to the length to remove the boundary of the small box below
                                                             //boundaries[i].style.backgroundColor = "#ff8888"
             boundaries[i].className += " youlose"           //This will override the original boundary color using the present youlose color in the CSS file
         }
-        statuss.textContent = "You lost! :("                //\nClick \"S\" to restart
+
+        if(flag3){                                          //if the player did not cheat but touched the boundary, this loss message is displayed
+            statuss.textContent = "You lost! :("            //\nClick \"S\" to restart
+        }
+        else{                                               //otherwise the player tried to cheat by going around and this message is displayed
+            statuss.textContent = "You cheated! Loser..."
+        }
+        
     }
 }
 
@@ -89,9 +100,10 @@ let clickStart = () => {                                    //this function will
 
 //-----------------------------------------------
 
-let playerCheating = () => {
+let playerCheating = () => {                                //this function will be executed when the player tries to cheat by going around after starting the game
 
-    //display you lost if the mouse goes outside
+    flag3 = false                                           //to correctly display that the player cheated on the screen
+    touchBoundary()                                         //similar effect to the loss outcome
 }
 
 //-----------------------------------------------
