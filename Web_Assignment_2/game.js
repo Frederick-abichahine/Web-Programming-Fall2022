@@ -19,6 +19,7 @@ let username          //the player's username used to login and save their score
 let password          //the user's password
 let score             //score variable to keep track of the player's score
 let object            //used to store object information
+let reset
 
 /*
 #################################################
@@ -27,7 +28,10 @@ let object            //used to store object information
 */
 
 window.onload = () => {
-
+    
+    reset = document.getElementsByClassName("boundary example")
+    reset[0].innerHTML = "<span><strong>Reset Score</strong></span>"
+    reset[0].onclick = resetScore
     object = document.getElementsByTagName("P")             //array that stores all the paragraphs from the HTML, in this case we have 2 paras => 2 elements, 0 and 1
     login()
     //displayScore()
@@ -163,6 +167,23 @@ let displayScore = () => {                                  //this function simp
 
     score = JSON.parse(localStorage.getItem(username))
     object[1].textContent = "Good luck. Your Score is: " + score.score
+}
+
+//-----------------------------------------------
+
+let resetScore = () => {                                    //this function will allow the player to reset their score to 0
+
+    let reset_score = JSON.parse(localStorage.getItem(username))
+    reset_score.score = 0
+    localStorage.setItem(username, JSON.stringify(reset_score))
+    displayScore()
+    for (let i = 0; i<boundaries.length - 1; i++){          //we add -1 to the length to remove the boundary of the small box below
+        boundaries[i].className = "boundary"                //This will override and replace the youlose boundary color using the original boundary color in the CSS file
+    }
+
+    flag2 = true                                            //resetting the flag variables and status
+    flag3 = true
+    statuss.textContent = "Begin by moving your mouse over the \"S\"."
 }
 
 //-----------------------------------------------
