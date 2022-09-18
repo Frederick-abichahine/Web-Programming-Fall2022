@@ -26,6 +26,8 @@ let password
 
 window.onload = () => {
 
+    login()
+
     begin = document.getElementById("start")
     begin.onmouseover = touchStart                          //this will enter the function touchStart when the player hovers over "S" to properly start the game
     finish = document.getElementById("end")
@@ -40,7 +42,6 @@ window.onload = () => {
     for (let i = 0; i<boundaries.length - 1; i++){
         boundaries[i].onmouseover = touchBoundary           //this will enter the function touchBoundary to ensure that the borders turn red if the player hovers over them
     }
-    login()
 }
 
 /*
@@ -119,19 +120,39 @@ let playerCheating = () => {                                //this function will
 
 let login = () => {
 
-    //window.confirm("Hello Hello Hello")
-    alert("Hi")
+    username = prompt("Enter Username: ");
+    const checker = checkUsername()
+
+    if(checker != null){
+        password = String(prompt("Enter Password: "));
+
+        while(String(test.pass) != password){
+            password = String(prompt("Enter Password: "));
+        } 
+    }
+    else{
+        password = prompt("Enter Password: ");
+        const users = {name: username, pass: password, score: 0};
+        localStorage.setItem(username, JSON.stringify(users));
+    }
+    
 }
 
-//keep track of score
-//+5 for win
-//-10 for lose
-//add button to reset score to 0
-//save score on local storage
-//add login system
+//-----------------------------------------------
+
+let checkUsername = () => {                                 //This function checks if the username input exists or returns null
+
+    const checker = JSON.parse(localStorage.getItem(username)); 
+    return checker
+}
 
 //-----------------------------------------------
 //End
+
+
+//+5 for win
+//-10 for lose
+//add button to reset score to 0
 
 /*
 Notes:
