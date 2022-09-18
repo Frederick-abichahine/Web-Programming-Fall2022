@@ -19,7 +19,7 @@ let username          //the player's username used to login and save their score
 let password          //the user's password
 let score             //score variable to keep track of the player's score
 let object            //used to store object information
-let reset
+let reset             //used to create the reset score button
 
 /*
 #################################################
@@ -28,13 +28,12 @@ let reset
 */
 
 window.onload = () => {
-    
+
     reset = document.getElementsByClassName("boundary example")
     reset[0].innerHTML = "<span><strong>Reset Score</strong></span>"
-    reset[0].onclick = resetScore
+    reset[0].onclick = resetScore                           //this will enter the function resetScore in order for the user to reset their score to 0
     object = document.getElementsByTagName("P")             //array that stores all the paragraphs from the HTML, in this case we have 2 paras => 2 elements, 0 and 1
     login()
-    //displayScore()
     begin = document.getElementById("start")
     begin.onmouseover = touchStart                          //this will enter the function touchStart when the player hovers over "S" to properly start the game
     finish = document.getElementById("end")
@@ -76,7 +75,7 @@ let touchEnd = () => {                                      //this function will
         flag1 = false                                       //to ensure that the boundaries do not turn red after winning, unless the game is restarted
         flag2 = false                                       //to ensure that the player can not start again just by hovering over "S" (they must click it)
         let higher_score = JSON.parse(localStorage.getItem(username))
-        higher_score.score += 5                             //increases the score y 5 points when the player wins
+        higher_score.score += 5                             //increases the score by 5 points when the player wins
         localStorage.setItem(username, JSON.stringify(higher_score))
         displayScore()
     }
@@ -102,7 +101,7 @@ let touchBoundary = () => {                                 //this function will
             statuss.textContent = "You cheated! Loser..."
         }
         let lower_score = JSON.parse(localStorage.getItem(username))
-        lower_score.score -= 10
+        lower_score.score -= 10                             //decreases the score by 10 points when the player loses or cheats
         localStorage.setItem(username, JSON.stringify(lower_score))
         displayScore()
     }
