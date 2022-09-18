@@ -15,6 +15,8 @@ let statuss           //this will save the status in order to change it appropri
 let click             //this variable will be used to check if the user clicked on the "S" box to restart the game
 let cheat             //this variable will make sure that the user does not cheat by going around the game after starting it
 let flag3 = true      //this variable is just for display purposes; to correctly display if the player cheated or not
+let username
+let password
 
 /*
 #################################################
@@ -38,6 +40,7 @@ window.onload = () => {
     for (let i = 0; i<boundaries.length - 1; i++){
         boundaries[i].onmouseover = touchBoundary           //this will enter the function touchBoundary to ensure that the borders turn red if the player hovers over them
     }
+    login()
 }
 
 /*
@@ -77,7 +80,6 @@ let touchBoundary = () => {                                 //this function will
         flag1 = false                                       //this ensures that the user can not cheat after losing before restarting the game
 
         for (let i = 0; i<boundaries.length - 1; i++){      //we add -1 to the length to remove the boundary of the small box below
-                                                            //boundaries[i].style.backgroundColor = "#ff8888"
             boundaries[i].className += " youlose"           //This will override the original boundary color using the present youlose color in the CSS file
         }
 
@@ -95,7 +97,14 @@ let touchBoundary = () => {                                 //this function will
 
 let clickStart = () => {                                    //this function will be executed when the player wants to restart the game by clicking on the "S" box
     
-    document.location.reload(true)                          //reloads the page to play again
+    //document.location.reload(true)                        //reloads the page to play again
+    for (let i = 0; i<boundaries.length - 1; i++){          //we add -1 to the length to remove the boundary of the small box below
+        boundaries[i].className = "boundary"                //This will override and replace the youlose boundary color using the original boundary color in the CSS file
+    }
+
+    flag2 = true                                            //resetting the flag variables
+    flag3 = true
+    touchStart()                                            //since user is already on "S" the game should start again immediately after clicking "S"
 }
 
 //-----------------------------------------------
@@ -108,6 +117,12 @@ let playerCheating = () => {                                //this function will
 
 //-----------------------------------------------
 
+let login = () => {
+
+    //window.confirm("Hello Hello Hello")
+    alert("Hi")
+}
+
 //keep track of score
 //+5 for win
 //-10 for lose
@@ -117,3 +132,12 @@ let playerCheating = () => {                                //this function will
 
 //-----------------------------------------------
 //End
+
+/*
+Notes:
+To access local storage: right click, inspect, >> (next to memory), application, local storage, file
+
+Two types of local storage:
+    - window local storage: will keep data even after reseting the page / closing the browser (we will be using this here)
+    - session local storage: will remove the data after the session ends 
+*/
