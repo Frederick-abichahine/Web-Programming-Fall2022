@@ -15,8 +15,10 @@ let statuss           //this will save the status in order to change it appropri
 let click             //this variable will be used to check if the user clicked on the "S" box to restart the game
 let cheat             //this variable will make sure that the user does not cheat by going around the game after starting it
 let flag3 = true      //this variable is just for display purposes; to correctly display if the player cheated or not
-let username
-let password
+let username          //the player's username used to login and save their score
+let password          //the user's password
+let score             //score variable to keep track of the player's score
+let object            //used to store object information
 
 /*
 #################################################
@@ -26,8 +28,9 @@ let password
 
 window.onload = () => {
 
+    object = document.getElementsByTagName("P")             //array that stores all the paragraphs from the HTML, in this case we have 2 paras => 2 elements, 0 and 1
     login()
-
+    //displayScore()
     begin = document.getElementById("start")
     begin.onmouseover = touchStart                          //this will enter the function touchStart when the player hovers over "S" to properly start the game
     finish = document.getElementById("end")
@@ -68,6 +71,10 @@ let touchEnd = () => {                                      //this function will
         statuss.textContent = "You won! :D"
         flag1 = false                                       //to ensure that the boundaries do not turn red after winning, unless the game is restarted
         flag2 = false                                       //to ensure that the player can not start again just by hovering over "S" (they must click it)
+        let higher_score = JSON.parse(localStorage.getItem(username))
+        higher_score.score += 5                             //increases the score y 5 points when the player wins
+        localStorage.setItem(username, JSON.stringify(higher_score))
+        displayScore()
     }
 }
 
@@ -90,7 +97,10 @@ let touchBoundary = () => {                                 //this function will
         else{                                               //otherwise the player tried to cheat by going around and this message is displayed
             statuss.textContent = "You cheated! Loser..."
         }
-        
+        let lower_score = JSON.parse(localStorage.getItem(username))
+        lower_score.score -= 10
+        localStorage.setItem(username, JSON.stringify(lower_score))
+        displayScore()
     }
 }
 
@@ -118,41 +128,45 @@ let playerCheating = () => {                                //this function will
 
 //-----------------------------------------------
 
-let login = () => {
+let login = () => {                                         //this function pops up user login information everytime the site is launched or refreshed
 
     username = prompt("Enter Username: ");
-    const checker = checkUsername()
+    const checker = checkUsername()                         //calls the function to check if the username exists or not
 
-    if(checker != null){
+    if(checker != null){                                    //if the username exists then this executes
         password = String(prompt("Enter Password: "));
 
-        while(String(test.pass) != password){
+        while(String(checker.pass) != password){            //ensures that the correct password is entered
             password = String(prompt("Enter Password: "));
-        } 
+        }
+        object[1].textContent = "Good luck. Your Score is: " + checker.score 
     }
-    else{
+    else{                                                   //else the name does not exist so a new account is being created
         password = prompt("Enter Password: ");
-        const users = {name: username, pass: password, score: 0};
-        localStorage.setItem(username, JSON.stringify(users));
-    }
-    
+        const object2 = {name: username, pass: password, score: 0};
+        localStorage.setItem(username, JSON.stringify(object2));
+        object[1].textContent = "Good luck. Your Score is: " + object2.score
+    } 
 }
 
 //-----------------------------------------------
 
-let checkUsername = () => {                                 //This function checks if the username input exists or returns null
+let checkUsername = () => {                                 //this function checks if the username input exists or returns null
 
     const checker = JSON.parse(localStorage.getItem(username)); 
     return checker
 }
 
 //-----------------------------------------------
+
+let displayScore = () => {                                  //this function simply displays the current score of the player
+
+    score = JSON.parse(localStorage.getItem(username))
+    object[1].textContent = "Good luck. Your Score is: " + score.score
+}
+
+//-----------------------------------------------
 //End
-
-
-//+5 for win
-//-10 for lose
-//add button to reset score to 0
 
 /*
 Notes:
