@@ -1,0 +1,66 @@
+<!-- Web-Programming Lec2
+
+####################
+		HTML
+####################
+
+Hyper Text Markup Language.
+Every website starts and and ends with <html> and </html> respectively. -->
+
+<html>
+
+	<head> <!-- nothing inside head shows, except the title tab. here we link the CSS sheet, if we link JS here then we need to write window.onload in JS-->
+		<title>Web Session 1</title> <!--string that shows in the tab of google chrome-->
+	</head>
+
+	<body>
+
+		<h1>Hello World </h1> <!-- Heading 1, we do not have h0 nor h7+, the bigger the number the smaller the font size -->
+		<h3>I am smaller :( </h3>
+		<h6>I am the smallest :'( </h6>
+		<!-- <h9>Hi</h9>, wont give an error but would be displayed as a normal text -->
+
+		<p>I am a <br/> paragraph! </p> <!-- Paragraph, difference between heading is that heading is in bold, paragraph is not bold, br means break the line, br is an empty tag since we have only one tag to open and close it. -->
+
+		<!--other tags are called non-empty tags, these are the tags that we have to open and close as different tags, like <h1></h1>-->
+		<!--an empty tag is like break which is one tag that opens and closes at the same tag, <br/>-->
+
+		<ol> <!-- stands for ordered list -->
+			<li> Swimming </li> <!-- stands for list item -->
+			<li> Hacking </li>
+			<li> Coding </li>
+		</ol>
+
+		<hr/> <!-- also an empty tag like br/, gives a horizontal line -->
+
+		<ul> <!-- unordered list, gives bullet points -->
+			<li> Swimming </li>
+			<li> Hacking </li>
+			<li> Coding </li>
+		</ul>
+
+		<table border = "5" width = "50%"> <!--border just adds a border and the number adds thickness, width is the % of the screen the table takes -->
+
+			<!--border and width are html attributes -->
+
+			<tr> <!-- table row -->
+				<th> Midterm </th> <!-- it is a column table header, bold -->
+				<th> Final </th>
+				<th> Labs </th>
+				<th></th>
+			</tr>
+
+			<tr>
+				<td> 20/100 </td> <!-- it is a column table data, not bold unlike th -->
+				<td> 46/100 </td>
+				<td> 12/100 </td>
+				<td> 30/100 </td>
+			</tr>
+
+		</table>
+
+		<img src="https://www.worldwildlife.org/species/seals" width="30%" height="50%"> <!--NEVER put the online link for the src (source) but rather download the image in the same directory incase the owner of the image deletes it from the internet-->
+		<!--also, it is bad to have an online src since it will take forever to load the image if the internet connection is weak-->
+	</body>
+
+</html>
