@@ -1,0 +1,49 @@
+<!-- 
+##################################
+Web-Programming Lec5: CSS
+##################################
+
+-->
+
+<html>
+
+    <head> <!--everything in head is not read, only the title shows, what we want to display should be put in the body -> that is why we have only 1 body-->
+        
+        <title>CSS Session</title> 
+
+        <link rel="stylesheet"  href="styles.css"> </link> <!-- This is external CSS that we should always be doing-->
+
+    </head>
+
+    <body>
+
+        <h1>Hello World </h1>
+        <h3 class="color-blue">I am here! </h3>
+        <h3 id="color_yellow">I am there! </h3> <!-- we can not give multiple ids for one element-->
+
+        <p class="color-blue font18"> I am a paragraph</p>
+
+        <!--"a" is used to create links, it is called anchor-->
+        <a href="http://google.com" target="_blank">Go to google</a> <!-- target is an html attribute that tells us where the page will open, either a new tab, same tab etc...-->
+        <!--if we want to go to an online website or page we NEED to put http, if we do not put http then the href will think the link is local to your device-->
+        <!--if we want to go to a local page on your device you have to put href="page.html" the html is important-->
+        <a href="page1.html">Go to page 1</a> <!--make sure the file / page is present on your device-->
+
+        <a href="google.com">Go to google</a>
+        <!-- the above will give an error since we do not have a google.com file on our device, we need to put http to ensure that it is online-->
+
+        <a href="mailto:email.address@mail.com"></a>
+        <!--the above is to send a mail-->
+
+    </body>
+
+</html>
+
+<!--
+Difference between tag and attribute:
+
+1) tag in html is a way of denoting an HTML element in the program whereas an attribute in html is a way of defining the characteristics of an HTML element.
+2) tag can be a starting tag or an ending tag whereas an attribute consists of name and value.
+
+-> <header> is something we write in the body, pay attention to this, it is different than <head> which is outside the body
+-->
