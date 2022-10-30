@@ -1,0 +1,31 @@
+h1{
+	font-size:40px; /*40 pixels*/
+	color:  red;
+}
+
+/*The * is to select all / for all*/
+*{
+	font-weight: lighter !important;
+	color: grey;
+}
+
+/*so all elements will have font-weight lighter except the ones with class font18... if we want the font-weight to be lighter for all even for class font18 we have to put !important */
+.font18{
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+/*the . is for class*/
+.color-blue{
+	color: blueviolet;
+}
+
+/*the # is for id*/
+#color_yellow{
+	color: yellow;
+}
+
+body{
+	background-color: aquamarine;
+}
+
