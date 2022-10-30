@@ -1,0 +1,26 @@
+Web-Programming Lec3: Git
+
+Git is a version control system
+Git tracks changes by doing math (the math (the commit) is basically at what line did we add or remove code etc...)
+File is an executable item, a folder is a set of files or other folders.
+
+There is a difference between git and github:
+	- git is the tool, the logic, the algo...
+	- github is the server where we can host and connect our files there.
+
+When we commit it is still local, we did not send it to the server yet. We can commit multiple things before sending to server (push).
+When we push we send the files to the server, before pushing everything is still local. Others can pull from the server to get the updated version.
+
+There is no merging issues since you can not push if there is a new updated version so you need to pull first.
+
+GitBash comments:
+	1)	To clone a repo:
+		git clone URL (the url of the repo)
+
+	2)	To push:
+		a) git add. (. means all the files)
+		b) git commit -m "first commit" #put the comment, we do not need interent for this, it is local (-m is the message, and between "" is the commit message that will be visible on github)
+		c) git push origin #we need internet for this comment, we need internet for this
+
+	3)	To pull:
+		git pull origin (we also need internet for this)
