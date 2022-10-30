@@ -1,0 +1,102 @@
+<!-- 
+##################################
+Web-Programming Lec4: Intro to CSS
+##################################
+
+The browser has a predifined default CSS. We have to reset the styles of the browsers.
+This does not allow us to have a consistency upon all browsers since ex: chrome and edge have different default css.
+So if we do not reset the CSS then the style would differ from one browser to another...
+
+We have:
+	1)	inline CSS - the one we write in the HTML tag
+	2)	inner CSS - the one we write as a seperate block of code inside the HTML file, in the head section
+	3)	external CSS (From now we should always use this, no more inline or inner CSS) - seperate file for CSS then we link the HTML file to this CSS file
+
+HTML is sequential, so it will read line by line
+
+Class attribute is for CSS: we start designing using Classes
+id attribute is for JavaScript: we dont design with this since id is unique, we can not have multiple tags with the same id
+
+Style is an HTML attribute but what comes after style is CSS code
+
+
+<html>
+
+	<head>
+		<title>CSS Session</title>
+
+		<link rel="stylesheet" href="styles.css"></link>  This is external CSS that we should always be doing
+
+		<style> /*this is "inner CSS" from, we need to comment like a CSS file */
+			h1{ /*h1 is a selector that selects all h1 tags in HTML and changing their style, in this case font size*/
+				font-size:40px; /*40 pixels*/
+			}
+
+			/*The * is to select all / for all*/
+			*{
+				font-weight: lighter !important; /*we cannot override important*/
+				color: grey;
+			}
+
+			/*so all elements will have font-weight lighter except the ones with class font18... if we want the font-weight to be lighter for all even for class font18 we have to put !important */
+			.font18{
+				font-size: 18px;
+				font-weight: bolder;
+			}
+
+			/*the . is for class*/
+			.color-blue{
+				color: blueviolet;
+			}
+
+			/*the # is for id*/
+			#color_yellow{
+				color: yellow;
+			}
+
+		</style>
+
+	</head>
+
+	<body style="background-color: aquamarine;"> this is inline CSS, style is an html attribute but what comes after it is CSS code
+
+		<h1 style="color: red;">Hello World </h1>
+		<h3 class="color-blue">I am here! </h3>
+		<h3 id="color_yellow">I am there! </h3> we can not give multiple ids for one element
+
+		<p class="color-blue font18"> I am a paragraph</p>
+
+	</body> 
+
+</html>
+
+-->
+
+<!--Now for proper coding, we remove all the CSS from HTML and all we do is link the HTML to the CSS file, this is ecternal CSS that we need to do-->
+
+<html>
+
+	<head> <!--everything in head is not read, only the title shows, what we want to display should be put in the body -> that is why we have only 1 body-->
+		
+		<title>CSS Session</title> 
+
+		<link rel="stylesheet"  href="styles.css"> </link> <!-- This is external CSS that we should always be doing, rel measn relation-->
+
+	</head>
+
+	<body>
+
+		<h1>Hello World </h1>
+		<h3 class="color-blue">I am here! </h3>
+		<h3 id="color_yellow">I am there! </h3> <!-- we can not give multiple ids for one element-->
+
+		<p class="color-blue font18"> I am a paragraph</p>
+
+	</body>
+
+</html>
+
+<!--
+The class attribute is an array of several classes, so we can add inside of it multiple classes.
+We can not give multiple ids for one element
+-->
