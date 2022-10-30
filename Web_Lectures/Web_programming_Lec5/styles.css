@@ -1,0 +1,123 @@
+h1{
+	font-size:40px; /*40 pixels*/
+	color:  red;
+}
+
+/*The * is to select all / for all*/
+*{
+	font-weight: lighter !important;
+	color: grey;
+}
+
+/*so all elements will have font-weight lighter except the ones with class font18... if we want the font-weight to be lighter for all even for class font18 we have to put !important */
+.font18{
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+/*the . is for class*/
+.color-blue{
+	color: blueviolet;
+}
+
+/*the # is for id*/
+#color_yellow{
+	color: yellow;
+}
+
+body{
+	background-color: aquamarine;
+}
+
+/*################# NEW LECTURE #################*/
+
+.c1.c2{ /* without space selects all the classes that have c1 and c2*/
+	/*div class="c1 c2"*/
+}
+
+.c1 .c2{ /*with space selects all the decendants of c1 which is c2 (c2 is the decendant of c1) classes that have c1 and c2*/
+	/* <div class="c1"> <p class="c2"></p> </div>*/
+}
+
+/*EXAMPLE 1
+.c1 .c2{
+	color: red;
+}
+
+<p class="c2"> ... </p>
+<div class="c1">
+	<h2 class="c2">...</h2>
+</div>
+
+#####This will color only h2 red since it is a decendant of c1
+
+.c1.c2{
+	color: blue;
+}
+
+#####This will color nothing blue since nothing has class c1 and c2
+
+<p class="c1 c2">...</p>
+
+#####The above will be colored blue
+
+*/
+
+p.para{
+	/*selects all paragraphs with class="para"*/
+}
+
+div, p{
+	/*selects all the div elements and all the p elements*/
+}
+
+div > p{
+	/*selects all the paragraphs having div as a direct parent*/
+}
+
+div + p{
+	/*selects the first p element placed immediately after a div for all, NOT a decendant of div*/
+}
+
+/*
+<div>
+    <div>
+        <p>Hello boss</p>
+    </div>
+	<p>Bye boss</p>
+</div>
+
+The Bye boss would be colored here since it is directly after the inner <div> NOT because it is a decendant of the mother <div>
+*/
+
+p ~ ul{
+	/*selects all ul elements preceeded by a p*/
+}
+
+[target] {
+	/*selects all elements with this attribute: target*/
+	/*any "a" in html with this target will get selected, the "a" we find it with href, it is the anchor*/
+}
+
+[target = _blank]{
+	/*select all the elemets having target attribute and the value is equal to _blank*/
+}
+
+[title ~= flower]{
+	/*selects all the elements having the attribute title and the value contains (not necesarily equal to) flower, ex: title = "I love flower" then it will select it*/
+	/*but "i love flowers" it will not select it*/
+}
+
+p::after{
+	/*lets you insert things, styles, borders etc...after all paragraphs*/
+}
+
+p::before{
+	/*lets you insert things, styles, borders etc...before all paragraphs*/
+}
+
+.para::before{
+	/*Same as above but this is specific for all tags with class para, unlike above which is for all paras*/
+	/*also for ::after*/
+}
+
