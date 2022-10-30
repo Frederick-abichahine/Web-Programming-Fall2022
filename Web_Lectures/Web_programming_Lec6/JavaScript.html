@@ -1,0 +1,129 @@
+<!--
+JavaScript is a scripting language, not like JAVA...
+
+JavaScript is also called ECMASCRIPT, from it we get the abbreviation ES6, which is the most stable version of JS
+
+Example:
+    If we have a calculator:
+    The HTML would be the buttons, the screen etc..
+    The CSS would be resposible for the design, the colors of the buttons etc...
+    JavaScript would be resposible for the logic of calculations, the dynamics and animations etc...
+
+We can declare our functions anywhere and call them anywhere (not necessarily after declaring the function unlike python) since JS uses a compiler
+
+-->
+
+<!--
+DOM: Doccument Object Model
+
+Through javascript we can access HTML.
+HTML is like a tree, as we said before. We can consider the whole HTML as one object and we can traverse this tree from JavaScript
+
+Class is for CSS
+ID is for JS
+
+Through the representation of HTML as a tree, we can use DOM to access HTML as we consider it as one object
+
+we link to the CSS file in the head
+we link the JS file at the end of the body
+
+-->
+
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+        <h1 id="my_title"> Hello World </h1> <!-- this ID should be unique in the HTML file, and we use ID for JS-->
+        <h2 class="el"> Element 1 </h2>
+        <h3 class="el"> Element 2 </h3>
+
+        <script>
+            //comment like this in script, JS
+            //if we put the script in the head instead of the body it will read the code even before creating the object so it will give an error (NULL)
+            //It is going to run head, title, then the script... in order
+            //and in the script we have element.getID BUTTT there is no ID in HTML created yet so it will give a null error
+
+            //we do not have to put ; at the end but if we put ; then we need to be consistent and put it for all. Plus, ; will let us type on the same line.
+
+            console.log("Hello World!")
+            var x = 10 //var is not the good way to do it, but for now we will be using it to start... we will use let and const for later.
+            var y = 3
+            console.log(y)
+
+            //alert("Hello!") //will show a popup on the screen, not recommended to use this as it is one of the bad practices.
+            //if you want to show a proper message to the user we do it in HTML later
+
+            var str = prompt("Enter your name:")
+            var element = document.getElementById("my_title") //we are accessing the HTML Object by the root and we are getting this ID
+            console.log(element) //we can now access any element we want by this
+            element.innerText = "Hello " + str //this will change the Hello World of HTML to your name... Now my website is dynamic
+
+            //Difference between innerText and innerHTML
+            //innerText we can not write HTML tags inside of it whereas innerHTML we can write HTML tags so it can process it such as <i></i> to make it italic etc...
+            //So innerHTML will process HTML code like <div> etc...
+            element.innerHTML = "<i>Hello " + str + "</i>"
+
+            element.style.color = "red"
+
+            if(x < 10){
+                print("Smaller") //this will remain local but wont show on the console
+                console.log("Smaller")
+            } else{
+                console.log("Larger")
+            }
+
+            for(var i=0; i<5; i++){
+                console.log(i**2)
+            }
+
+            test() //unlike python, we can call the function even before declaring it... it is compiled not interpreted like python.
+
+            function test(){
+                alert("I am inside the function")
+            }
+
+            //even though ID is for JS this does not mean we can not access class from JS
+
+            var z = document.getElementsByClassName("el") //z is an array of several elements 
+            //so z.style.color = "red" DOES NOT WORK since we can not color an array red, we can fix it using:
+
+            z[0].style.color = "red" //this will color the first elemnt of the array, to color all we need to loop
+
+            for(var i=0; i<z.length; i++){
+                z[i].style.color = "blue"
+            }
+
+            //doccument.onload will wait up until the doccuments are loaded, JUST the doccuments without videos, images etc...
+            //but window.onload will wait till the entire window loads
+
+            //window.onload = () => {} this is calling an anonymous function (a function without a name) because we only want to reference it once and never again
+            //we write it inside the JS file
+
+            //practice palindrome in JS (below)
+
+        </script>
+
+    </body>
+
+</html>
+
+<!-- const palindrome = (s) => {
+    let low = 0
+    let high = s.length - 1
+    let flag = true
+    
+    while (low<=high && flag){
+        if (s[low] != s[high]){
+            flag = false
+        }
+        low++
+        high--
+    }
+
+    console.log(flag)
+    return flag
+}
+
+palindrome("heleh") -->
