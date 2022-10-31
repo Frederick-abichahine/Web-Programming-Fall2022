@@ -1,0 +1,79 @@
+#####################################
+	    	  API & JSON
+#####################################
+
+API: is a url (endpoint) that is returning an object
+In this case, it returns a JSON object
+
+Download: Postman Chrome (there is postwoman that is exactly like postman)
+POST APIs we can not test them, thats why we have postman for that
+we copy the API link, put it in postman and choose what type of request we want (get, etc...)
+
+Postman is a software that helps you debug or test your API with any http request
+
+FrontEnd and BackEnd are two different worlds:
+	When working on frontend do not touch backend
+	Finish frontend then work on backend (viceversa)
+	Working on frontend and backend at the same time will be very hard and confusing (due to many languages etc...)
+
+STEPS: {
+
+	FE:
+		1- recieve API (url)
+		2- test the API on postman
+		3- inject this API in JS
+		4- parsing JSON
+		5- populate my HTML => SPA
+
+	BE:
+		1- Later...
+}
+
+CORS error (cross-origin resource sharing error): it is an error that shows in the frontend because of the backend.
+		The only one who can solve this error is a Backend developer; it shows on the frontend (on JS) but the backend can solve it.
+		The backend developer will fix this by allwoing different origin / servers (simple line of code)
+
+#################################################
+	Database notes (Lectures 12 and 13)
+#################################################
+
+- database name should:
+	1) end with db
+	2) no capital letters
+	3) no special characters (we can put _ but it is not one of the best practices)
+
+- tables:
+	1) always put s at the end of the table name
+	2) a table is a collection of records
+	3) do not put NULL as a value, put 0 or something else
+	4) you can not put more than 1 value in one cell (1nf): atomic values
+
+//key: is an attribute or a collection of attributes that can identify a record in a table
+//candidate key: is a minimal key, without attrubutes that are useless to identify a record
+//primary key: is a chosen candidate key (usually the primary key is an id since it is better for indexing, faster)
+//foriegn key: is a key placed in another table that is linked to the primary key of the inital table
+
+- relationships:
+	1) one-to-one (1-1): one object from one table is linked to one object of another table
+		- users and user_passports: we put FK in users because it makes more sense
+	2) one-to-many (1-m): one record from one table is linked to many records of another table
+		- specify direction
+		- the FK will be in the many table
+		- users and cars is a one to many relationship: the FK is in cars since a car is linked to one user (assuming)
+	3) many-to-many (m-n): 
+		- needs a pivot table
+		- stundets and courses: it is a many to many between students and courses BUT between students and pivot it is one to many & between courses and pivot it is also one to many
+		- we can have a m-n relationship in the SAME TABLE, for example followers or messages... we have a table called users and this has a m-n relationship with it self since one user can have many followers and could be following many people too etc... it will have a pivot table of course
+
+		
+//the number of joins in the where is equal to the number of tables TO JOIN -1 (pay attention to TO JOIN) (so if we have 2 tables to join, we have 1 join)
+
+//Example: get the url from passports for user with id=5 (1-1 rel between users and user_passports)
+
+	SELECT UP.url
+	FROM users U, user_passports UP
+	WHERE U.pid = UP.id AND U.id = 5
+
+//Authentication is making sure that the user trying to log in is an actual user (always comes wiht log in)
+//Authoriztion is making sure the logged in user is allowed to use a certain service etc... (checking if they have the authority to perform a task) (it happens after log in)
+
