@@ -1,0 +1,30 @@
+//Download XAMPP, MySQL workbench & POSTMAN
+
+workbench helps us create an ER diagram (entity relationship diagram)
+
+Database is on the server (a server has a fixed ip address)
+XAMPP is a fake server on our own machine / computer.
+is a software that works on any operating system in order to create someting called a local server on our client (own pc) => our pc is now the client and server at the same time
+HOWEVER, only a specific folder is acting like a server, not the whole PC (called htdocs)
+We use this local server to test a database etc...
+
+MySQL is a relational database based on relationships and structured data 
+vs 
+SQL is a language (structured query language)
+
+ALWAYS the database and PHP are on the same server. It is the optimal way (to be quick).
+
+##############
+id		int 11 primary AI
+username  	varchar 255
+password	varchar 255
+full_name 	varchar 255
+##############
+
+in webdev we start with FIGMA (Design)
+FIGMA is a software / website that helps you design your website or mobile apps - for interface designs
+
+##############
+	PHP
+##############
+on php_notes.php file
