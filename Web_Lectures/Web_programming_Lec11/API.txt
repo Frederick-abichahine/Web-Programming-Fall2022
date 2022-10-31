@@ -1,0 +1,79 @@
+So far:
+
+- Frontend languages:
+	+ HTML
+	+ CSS
+	+ JS
+
+- Backend languages:
+	+ PHP
+	+ SQL
+
+All these together create what we call full-stack (FSW)
+
+######################
+	API notes:
+######################
+
+There are two types of websites:
+
+	1) Sever-rendered websites:
+
+	   	Most youtube videos are here but this course will be #2 not this.
+		Client sends an http request to the server.
+		Server will reply with HTML, CSS, JS, or rendered php files (not php, difference).
+		Here we need to refresh the page in order to see the updated page like LAU add and drop page.
+		Here we go to the server everytime we send an HTTP request, which is bad
+		
+
+	2) Single Page Application (SPA)(client-rendered website):
+
+		Server talking to clients & clients replying to server.
+		Client sends an http request to the server.
+		Server will reply with HTML, CSS, JS WITHOUT rendered php files.
+		Here we do not need to refresh the page to see the updated page (SPA)
+		Examples would be netflix, gmail etc... we do not need to refresh to see a new email that was sent.
+		Gave birth to API
+		Here we get a response once without going to the server multiple times; only one section will change
+
+Server-rendered websites are TRASH, they have a hugeeee disadvantage. In a server rendered website, the files are .php and not .html
+Always use SPA as they are alot of quicker and smarter.
+
+Example:
+	LAU is server-rendered hence why is it very slow and whenever we type a wrong password it needs to re-render the entire page (all the images etc..) which will take alot of time...
+	But a better site would be to only re-render the section of the page that we need (such as the login button) => the login button will be onclick => sends a request to an API (URL) => returns a JSON object SOOOO this JSON object will be re-rendered and displays incorrect passsword rather than re-rendering the entire website.
+
+The content of SPA is based purly on the user behavior.
+Having everything (other than the backend) on the clients side is much faster and cheaper (since less server usage) => overall faster response time
+
+A server is a computer that is always connected to the internet (fixed IP) and always running.
+In this course we will create a local server on our PC.
+Companies that rent servers are: AWS, Godaddy...
+Hosting is uploading my files to a server.
+
+FTP: file transfer protocol -> to the server
+DNS: domain name system; it is a server; it is a link between IP and name
+So, instead of typing the IP to go to a website like google.com we can simply type google.com which will fetch the IP from the DNS server and then this IP is sent to the server (http request)
+
+PHP: it is a backend language that allows me to speak with the server <?php
+PHP is a master, it will not accept to be in a file name *.html, so we should change the file extension to *.php for it to work... unlike javascript that accepts to be in *.html
+We as clients can NEVER see or copy the PHP code unlike HTML, CSS, JS etc...
+
+Now I ask, if PHP could be in HTML, so the file is now *.php but how will it be given to the user to see the HTML?
+PHP is executable, hence the user will indeed get the HTML code with the PHP BUTTT The PHP will not be as a code but rather executed code with the result only. The user will not be able to see the php code at all!
+PHP will be executed in the backend and only the result will be displayed to the user.
+
+JS communicates with external URL
+
+API: application programming interfeace. Linked to a specific function.
+It is a URL or endpoint that returns an object. (endpoint is better to say)
+(do not say JSON object although almost all use that)
+
+Normal URL returns the whole website, when a URL returns the whole website it is not called an API
+API returns an object, not the whole website
+
+Three types of objects it can return (formats to structure our data):
+	1) CSV: Comma seperated values; it is a file so it has input output hence it takes time read and execute, and might be huge to downlaod
+	2) XML: Extended markup language; Grandpa of HTML; it is old and also a file hence very bad in terms of time complexity to read and fetch
+	3) JSON: Javascript object notation; Any language can understand JSON, they have built in functions to understand it. It started with javascript thats why they called it that.
+
