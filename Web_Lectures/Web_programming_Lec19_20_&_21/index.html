@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1 id="title">Hello world!</h1>
+
+        <h2>All Articles</h2>
+        <ul id ="my_articles">
+
+        </ul>
+
+        <input type="text" placeholder="">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script> <!-- we need axios in the javascript, so we put it before page_scripts, the .min is to minify-->
+        <script src="page_scripts.js"></script> <!--this just calls the page, like importing since the js file only has functions without any call statements, we are calling below the specific functions we want...-->
+        <script>
+            workshop_pages.loadFor("landing"); //here we pass landing as the parameter for page, then we concatenate it in JS 
+        </script>
+
+    </body>
+</html>
+
+<!--SEO: search engine optimization, we are optmizing our engine-->
+<!--one rule in SEO is to put the CSS file in the head, and JS file in the bottom-->
+<!--another rule of SEO is to minify the code, JS and CSS, which removes the spaces etc... to make the program faster to load, we use .min-->
