@@ -1,0 +1,76 @@
+###########################
+MVC - Model View Controller
+###########################
+
+What are the design patterns & give an example of a design pattern.
+Design patterns are used to set rules whenever you writting a code. A set of rules that you have to follow in order to write your code in a very cleanr way
+There are several design patterns, one of the well known ones is MVC
+OOP is not a design pattern, it is a paradigm.
+
+MVC is the foundations of laravel.
+
+M: Model is a class that represents the database. Shortcut is that it is the database
+V: View is an HTML, CSS, and JS files. It is the design / frontend.
+C: Controller is a class that handles the link between Models and View. This class is a middle man. It is the API
+
+-> controllers talk to the models and models retuns data to the controllers, never does the model talk to the views, controller can talk to views and views retuns the data to the controller.
+
+As of now the controller cannot insert, select etc... from the database, only the model can do so.
+Model represents a table in the database.
+
+The way we used to do in previous lectures, such as add_article.php is no longer done. We should not do it like that since it has already be done in the laravel.
+We should create a class for each table. A class is a blueprint that has 
+This is what laravel does for us. So now we no longer write sql, there is a method in the model class that insets etc... into the database.
+This was is better since the methods are secure and private.
+
+We will never see a good system without laravel.
+Always apply few things from laravel, even in Node.js
+
+User.php is a model (class), here we have the getters and setters, and all characteriscs and behaviors of the class. Like getUsername(), getAge() etc...
+
+###########################
+
+Laravel is a framework
+React is a library
+
+Laravel is a framework that is built ontop of PHP. The language is PHP, laravel is not a language.
+It is a framework that follows MVC which is a well-known design pattern
+
+## EX: ##
+
+We create a project called zomato-server, and when we do that it will automatically create subfolders that are 1) app 2) database 3) routers 4) resources and a file with an extension .env
+
++ Inside app we have 1) controllers and 2) models
+
++ .env is the passport of every laravel project. It contains the name and private key of the project. Inside the .env we have the DB credentials.
+
++ Inside routes we have 1) apa.php (we write our APIs ex: zomato.com/api/login) 2) web.php (we write the normal URLs not the APIs
+
++ Inside database we have 1) migrations and 2) seeds
+
++ Inside resources we have Views and inside that we have the HTML / blade (blade is specific to laravel)
+
+## -- ##
+
+A route is an endpoint, such as login. Routing is a method inside of php that is...
+Frontend is still the same, we have axios that creates an API: ...api/login    no longer have .html or .php etc... at the end of the URL
+
+Backend (api.php):
+Route::get("get_articles", ArticleController::getArticles); #here the route is get_articles and the ArticleController is a controller (class) that has a method getArticles.
+Route::post("login", LoginController::login); #this route is linked to this method -> so here the login is the route and the LoginController is the controller (class) that has a method login
+
+whenever we execute the api, the first thing that laravel does is that it goes to api.php and it will try to find a route (that has a method) that is specfic to the task such as login etc...
+The second step is the execution of the method in the controller (each route is linked to a method)
+
+Inside of app inside of controllers we create a file called ArticleController.php which is a controller (class) that has all methods for this task
+Inside of app inside of models we create Article.php (which is a table in the database)
+
+So now inside of the ArticleController.php we have a function that does:
+
+function getArticles(){
+	$articles = Article::all(); #if we want something specific we can specify Article::where("name", "Frederick") ... for id we specify Article::find(2)
+	return json_encode($articles) #this will return to the Views hence establishing the MVC that we talked about
+}
+
+
+
