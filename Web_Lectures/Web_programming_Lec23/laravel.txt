@@ -1,0 +1,56 @@
+It is not good to create an API without versioning. We can version our APIs by using the group method in laravel.
+Also, it is a good habbit to group our APIs, it will ensure that our APIs are clean
+
+Route::group(["prefix" => "v0.1"], function() {
+	Route::group(["prefix" => "admin"], function() {
+		Route::get("remove_user", [TestController::class, "removeUser"]);
+		etc...;
+	});
+	etc...;
+});
+
+//So above will group all the APIs into the first version
+
+Route::group(["prefix" => "v0.2"], function() {
+	etc...
+})
+
+//So above will group all the APIs into the second version etc...
+
+The first version of our application would talk with the first version of APIs
+The second version of our application would talk with the second version of APIs
+
+If it were not for this then we would have a huge issue if we get a new version then we would not know where to look for the new version methods, so grouping makes it cleaner.
+
+#### Migrations ####
+
+Inside the database we have a table called migrations, this stores all the migrations that have been done so if we already migrated user_table (ex) the migration class would tell us that we already mirated it.
+Migrations is a class and its objective is to create tables in the database automatically / programatically (CUD, not R)
+So now we no longer use the GUI to create our tables BUT the databse should always be created manually
+Advantage of migration is if I want to share my project with another person then all that person needs to do is run migration and they will have all the tables instead of us sharing an SQL file by email etc...
+
+EX:
+
+class CreateArticlesTable extends Migration{
+	public function up(){ //up is used to add / create a table
+		Schema::create('articles', function(Blueprint $table) {
+			$table -> id();
+			$table -> string("title");
+			$table -> string("author");
+			$table -> string("location");
+			$table -> timestamps();
+		});
+	}
+
+	public function down(){ //down is used to drop / remove a table
+		Schema::dropIfExists('articles');
+	}
+}
+
+//keep in mind, in the .env file we specify the database name, so this is how we know this project is for the database
+//php artisan migrate    -> this command will run all the migrations and I will get all tables that are not in the table migrations.
+//php artisan migrate:CreateArticleNameTable   -> this command will create a table inside the database, the name of the table will be ArticleName
+
+//whenever we create a laravel project it comes with 4 automatic migration
+
+//it is okay to create a migration to modify a table as well, not only to create a table
