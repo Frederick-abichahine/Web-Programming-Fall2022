@@ -1,0 +1,109 @@
+//make sure to run xampp
+//change the database name we are using inside the .env
+
+#################
+	Steps
+#################
+
+1) create laravel project
+2) create migrations then migrate
+3) create models
+4) create the controllers
+5) create APIs
+6) create functions needed in the controllers
+
+#################
+
+php artisian serve
+php artisan make:migration CreateRestaurantsTable
+php artisan make:migration CreateProductsTable
+php artisan make:migration CreateMessagesTable
+
+php artisan migrate //to migrate the tables to the db
+
+//softDeletes will flag a record as deleted but does not remove the data from the db
+//the up is whenever we migrate
+//the down will be executed when we rollback
+
+//After migrating, if we decide to add a column etc... we cannot simply migrate again. We have several ways to do this:
+1) Delete the migration in the migrations table and delete the table itself then migrate again (this is good in early stages of development but not when we have many records since this way will erase all the records)
+2)
+3)
+
+//we have to create models for every table (not for every migration)
+php artisan make:Model Restaurant    //no s since it is an object
+php artisan make:Model Product
+php artisan make:Model Message
+php artisan make:Model Purchases
+
+//Model is a visual representation of a table in our DB
+
+//creating controllers for every group of tables (so per "migration")
+php artisan make:Controller User/RestaurantController
+php artisan make:Controller User/ProductController
+php artisan make:Controller User/MessageController
+php artisan make:Controller Admin/UserController
+
+//now we create the routes
+DO NOT FORGET TO MENTION the use inside every route inorder to be able to read the methods required
+
+Route::get("restaurants/{id?}",[RestaurantController::class, "getRestaurants"]);
+Route::post("add_restaurant",[RestaurantController::class, "addOrUpdateRestaurant"]);
+Route::get("search/{keyword}",[RestaurantController::class, "searchRestaurant"]);
+
+Route::get("products/{id?}",[ProductController::class, "getProducts"]);
+Route::post("add_product",[ProductController::class, "addOrUpdateProduct"]);
+Route::get("search/{keyword}",[ProductController::class, "searchProduct"]);
+
+Route::get("messages",[MessageController::class, "getAllMessages"]);
+Route::post("send_message",[MessageController::class, "sendMessage"]);
+
+//This works fine but a cleaner way to do this would be to group, so all restaurants would be grouped togetehr, all products together etc...
+
+Route::group(["prefix" => "user"], function(){
+	Route::group(["prefix" => "restaurants"], function(){
+		Route::post("add",[RestaurantController::class, "addOrUpdateRestaurant"]);
+		Route::get("search/{keyword}",[RestaurantController::class, "searchRestaurant"]);
+		Route::get("{id?}",[RestaurantController::class, "getRestaurants"]);
+	});
+
+	Route::group(["prefix" => "products"], function(){
+		Route::post("add/{id?}",[ProductController::class, "addOrUpdateProduct"]);
+		Route::get("search/{keyword}",[ProductController::class, "searchProduct"]);
+		Route::get("{id?}",[ProductController::class, "getProducts"]);                    //it is best to put the fully optional api name last since it is a logical error to put it on top. So, since it can take any name if we write add/5 it will enter here and not to the api that has name add/#, hence why we MUST put it at the end so if the user does not match any name of any api here then it must be this...
+	});														    //another way to fix this is to add a name, not just an optional input...so it would be like id/{id?}... now we must put id/# to enter here
+
+	Route::group(["prefix" => "messages"], function(){
+		Route::get("messages",[MessageController::class, "getAllMessages"]);
+		Route::post("send",[MessageController::class, "sendMessage"]);
+	});
+});
+
+//it would be even cleaner if we include groups for version as well
+//versions are good since if someone did not uppdate the app they still be able to use the older version
+
+//use http.cat to check # error (like 404 etc...)
+
+###########################
+
+We never post on the database with id, we must use tokens!
+One of the most famous tokens is JWT (JSON web token)
+JWT is a token that cannot be altered, unlike an id
+--> implementing jwt in vanilla languages is hard, but in laravel it is very simply (watch the online tutorial to install it - quick jwt setup)
+take the composer required and put it inside cmd
+When you login with email and pass, you recieve a token that is saved in the frontend (that is why when it expires it logs you out and you have to login again)
+Tokens have a half-life (time before expiry) to ensure security.
+Some apps, like insta, refresh the token everytime you send a request, like going to profile, home etc...
+If you were inactive for a long time the token will expire and if you refresh the page after coming back it will log you out to ensure security.
+
+//Linking between axios and php, or axios and laravel is the same (what changes is the base url)
+
+###########################
+
+php artisan make:middleware AdminMiddleware
+
+//MiddleWare is a mechanism to check for authorization
+//it is a class, a security mechanism, between the API (request) and the method
+//This middleware will check if I am authorized to execute this API, else it throws us out
+
+//lets say we want to perform an authenticated task, like editting a profile, we need to send 
