@@ -1,0 +1,196 @@
+<!-- Flex is the foundation of bootstrap.
+Booststarp is a framework that is built on top of flex.
+Flex is a CSS framework that is used to create responsive websites.
+Flex will help us position our elements on the page.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flex Session</title>
+        <link href="flex.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="main-container">
+            <h1>Hello, World!</h1>
+
+            <div class="flex">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Center </p>
+            <div class="flex center">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex End </p>
+            <div class="flex end">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Space Around </p>
+            <div class="flex flex-space-around">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Space Evenly </p>
+            <div class="flex flex-space-evenly">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Space Between </p>
+            <div class="flex flex-space-between">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+    
+            <p> Flex Grow (Default = 0) </p>
+            <div class="flex">
+                <div class="item grow"></div> <!-- grow will be bigger than the default-->
+                <div class="item grow-2"></div> <!-- grow-2 is 2 times bigger than grow -->
+                <div class="item"></div> <!-- this will have the default grow which is 0-->
+            </div>
+
+            <p> Flex Shrink (Default = 1) </p>
+            <div class="flex">
+                <div class="item shrink"></div>
+                <div class="item shrink-2"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Basis </p>
+            <div class="flex">
+                <!--total needs to be 100%-->
+                <div class="item basis-10"></div> <!-- 10% of the container -->
+                <div class="item basis-20"></div> <!-- 20% of the container -->
+                <div class="item basis-40"></div> <!-- 40% of the container -->
+                <!-- 10% + 20% + 40% = 70% of container filled and the remanining space will be empty-->
+                <!-- if we add more than 100% then there will be a ratio -->
+                <div class="item basis-40"></div>
+                <div class="item basis-40"></div>
+            </div>
+
+            <p> Flex Wrap </p>
+            <div class="flex flex-wrap">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+                <div class="item">13</div>
+                <div class="item">14</div>
+                <div class="item">15</div>
+                <div class="item">16</div>
+                <div class="item">17</div>
+                <div class="item">18</div>
+                <div class="item">19</div>
+                <div class="item">20</div>
+                <div class="item">21</div>
+                <div class="item">22</div>
+                <div class="item">23</div>
+                <div class="item">24</div>
+                <div class="item">25</div>
+                <div class="item">26</div>
+                <div class="item">27</div>
+                <div class="item">28</div>
+                <div class="item">29</div>
+                <div class="item">30</div>
+            </div>
+
+            <p> Flex Wrap Reverse </p>
+            <!--fills the bottom container then fills the one above etc...-->
+            <div class="flex flex-wrap-rev">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+                <div class="item">11</div>
+                <div class="item">12</div>
+                <div class="item">13</div>
+                <div class="item">14</div>
+                <div class="item">15</div>
+                <div class="item">16</div>
+                <div class="item">17</div>
+                <div class="item">18</div>
+                <div class="item">19</div>
+                <div class="item">20</div>
+                <div class="item">21</div>
+                <div class="item">22</div>
+                <div class="item">23</div>
+                <div class="item">24</div>
+                <div class="item">25</div>
+                <div class="item">26</div>
+                <div class="item">27</div>
+                <div class="item">28</div>
+                <div class="item">29</div>
+                <div class="item">30</div>
+            </div>
+
+            <p> Flex Column </p>
+            <!--advantage of this than just regular divs under each other is that we have the properties of flex here in a container -->
+            <div class="flex dir-column">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Column (center align - x axis)</p>
+            <div class="flex dir-column align-items">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Column (center align - y axis)</p>
+            <div class="flex dir-column center-2">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+            <p> Flex Column (center align - x and y axis)</p>
+            <div class="flex dir-column center-2 align-items">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+
+        </div> 
+    </body>
+</html>
