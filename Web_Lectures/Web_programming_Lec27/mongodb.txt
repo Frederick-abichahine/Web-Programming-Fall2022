@@ -1,0 +1,44 @@
+MongoDB session
+---------------
+//MongoDB is not ONLY structured (we cannot say it is not structured since it can be) -> NoSQL
+//we have two main situations where we want to split the doccument into different collections
+	1) when the doccuments have no correlation
+	2) when the doccuemnt will be overloaded (such as having having many messages on a messaging platform, so we might want to split it...not always though)
+//a table in MySQL is called a collection in Monogdb (NoSQL)
+//a record (row)(object) in MySQL is called a doccument (object) in Mongodb
+//a table is a set of records
+//a collection is a set of doccuments
+//unlike in MySQL, every doccument has its own unique attributes (so some users can have an age, others might not...this case we will not have Null values unlike in MySQL)
+//in MySQL we will have to fill all attributes, otherwise it will be Null
+---------------
+db; 									//will output the name of the db i am in
+show dbs; 								//will output all the databases (with atleast one collection, or else it does not exist)
+use <db_name>;							//will switch database to the database name provided, if not present it will create it (it needs to have one collection or else it will not save => we cannot show it)
+use webdb;
+db.users.insertOne({name: "CDaoud"});			//monogodb takes a json object, this inserts ONE user into the table users inside the webdb
+show collections;							//this will output all the collections (tables) in my db
+db.users.insert([{name: "Fred"}, {name: "Joya"}]); 	//insert takes an array unlike insertOne that takes an object. This will insert in bulk, more than just one.
+db.users.find();							//it is like select * from users
+db.users.findOne();						//it will return the first user
+db.users.find().pretty();					//should display all objects of a table in a nice format
+db.users.find({name: "Joya"});				//finds the users with this name... (Select * from users where name="Joya")
+db.users.distinct("name");					//this will display all users in the user collection but not duplicated (select distinct name from users)
+db.users.count({name:"Joya"});				//will count how many users exist with the name Joya (select count(*) from users where name="Joya")
+db.users.insertOne({name:"Jacques", age:20})		//since this is mongoDB we can add an attribute age even though other users do not have that attribute
+db.users.find({"age": {$gt: 18}});				//here we are finding all users in the collection users where the user's age is greater than ($gt) 18
+db.users.update({"_id":1}, {"name": "Test"});		//will update the doccument specified
+db.users.remove({name:"CDaoud"});				//this will remove the doccument with the name specified
+db.users.remove({name:"CDaoud"}, {name:"Fred"});	//similar to above, but this will remove all doccuments that are specified
+db.users.remove({});						//this will remove all doccuments in the users collection
+db.users.drop();							//this will drop the collection
+db.dropDatabase();						//this will drop the entire database
+
+---------------
+//$gt -> greater than
+//$gte -> greater than or equal
+//$lt -> less than
+//$lte -> less than or equal
+//$ne -> not equal to
+//for equal we just need to specify the value such as "age":20
+//$in -> checks if it is in an array of values (takes an array of values)
+//$nin -> checks if it is NOT in an array of values (takes an array of values)
