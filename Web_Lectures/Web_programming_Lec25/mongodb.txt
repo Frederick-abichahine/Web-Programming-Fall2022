@@ -1,0 +1,29 @@
+Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
+
+We cannot say SQL vs MongoDB since SQL is a language and MongoDB is not!
+We can say MySQL vs MongoDB
+NoSQL means Not Only SQL, not no sql
+Whenever we have big data it is better to use MongoDB like a social media platform
+Whenever we have a structured data like LAU portal we need MySQL
+Whenever we have a chatting app is it better to use NoSQL
+Firebase is based on mongodb
+
+In MongoDB we no longer have tables, we have collections / objects (JSON objects)
+There are relationships in MongoDB but they are not the core!
+EX:
+
+[{ "id": 1,
+  "title": "Welcome to MongoDB",
+  comments: [{
+		  id:1,
+		  u_id:2,
+		  comment:"Hey! Amazing."
+		 }
+		 {
+		  id:2,
+		  u_id:3,
+		  comment:"Hey! Amazing."
+		 }
+		]
+
+}]
