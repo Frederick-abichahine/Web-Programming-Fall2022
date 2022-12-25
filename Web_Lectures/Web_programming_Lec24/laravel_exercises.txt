@@ -1,0 +1,7 @@
+#Write 4 APIs using laravel
+1st API) implement a signup API that takes the first name, last name, email and password of user and the API should save the user in the database
+2nd API) implement an API that takes the email and the password of the user and it returns -1 if the user is not found, else the user ID
+3rd API) implement an API that returns all the students (that are not blocked) in the database sorted by created at 
+4th API) implement the block API that takes the id of the user and the system should block the respective user
+
+//The purpose of laravel is to create APIs

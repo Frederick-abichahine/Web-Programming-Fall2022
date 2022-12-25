@@ -1,0 +1,17 @@
+//After creating the migration, we need to now create the models (cmd line)
+php artisian 
+php artisian make:Model Article
+//this will create a class in model called Article
+//and it will automatically create a table called articles, lowercase a and add an s...in case we want to change it we can manually do that inside Model Article by setting $table = new_name
+
+//now we must add a route inside the API
+//then inside TestController we have the methods to get the article etc...
+//ex:
+use App\Http\Models\Article;
+function getArticles(){
+	$articles = Article::all(); //we can use function all even though we did not define since this class extends Models which already has all the used functions defined
+	// Selete * FROM Article
+	return $articles;
+};
+
+//by extending model we mean that this this controller uses Article which is a model => Article extends model so when we use it here we get all functions in model too.
