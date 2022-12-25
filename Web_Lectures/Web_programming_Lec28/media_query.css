@@ -1,0 +1,18 @@
+/* media queries are if conditions
+A golden rule is to start with the smallest screen size and work your way up. Since if we do not specify a style for a larger sceen it will automatically take the style from the smaller screen size. */
+
+@media only screen and (max-width: 600px) {
+  /* styles for screens with 600px and smaller */
+}
+
+@media only screen and (min-width: 600px) {
+  /* styles for screens with 600px and larger */
+}
+
+@media only screen and (max-width: 768px) {
+  /* styles for screens with 768px and smaller */
+}
+
+@media only screen and (min-width: 768px) {
+  /* styles for screens with 768px and larger */
+}
