@@ -1,0 +1,15 @@
+//never use .querySelector() when you want to get the id (use .getElementById())
+//BUT when you want to get classes then use .querySelector() since according to the big O notation it is better than .getElementsByClassName() (time complexity)
+
+//querySelector() will retrieve the first occurance of the element
+//querySelectorAll() will retrieve all occurances of the element
+
+//.querySelectorAll("#game div.boundary") //to select all the boundaries that appear after the div with class game
+
+
+//###########################################
+
+//Lec 10
+//Assignment 3
+	- use MiniMax Algo for the tic-tac-toe game's AI
+	- The AI needs to be smart

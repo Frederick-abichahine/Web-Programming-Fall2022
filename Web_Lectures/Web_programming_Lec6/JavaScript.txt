@@ -1,0 +1,12 @@
+<!--
+JavaScript is a scripting language
+
+Example:
+    If we have a calculator:
+    The HTML would be the buttons, the screen etc..
+    The CSS would be resposible for the design, the colors of the buttons etc...
+    JavaScript would be resposible for the logic of calculations, the dynamics and animations etc...
+
+-->
+
+<html>
